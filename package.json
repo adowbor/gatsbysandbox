@@ -33,6 +33,7 @@
     "typography-theme-stern-grove": "^0.16.19"
   },
   "devDependencies": {
+    "firebase-tools": "^9.2.2",
     "prettier": "2.2.1"
   },
   "repository": {
