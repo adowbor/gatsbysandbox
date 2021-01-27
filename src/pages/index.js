@@ -14,7 +14,7 @@ export default function Home({ data }) {
             border-bottom: 1px solid;
           `}
         >
-          Amazing Pandas Eating Things
+          Amazing Pandas Eating Things 
         </h1>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -45,6 +45,12 @@ export default function Home({ data }) {
           </div>
         ))}
       </div>
+      <hr/>
+      <p>GATSBY_ALGOLIA_APP_ID:{process.env.GATSBY_ALGOLIA_APP_ID}</p>
+      <p>GATSBY_ALGOLIA_SEARCH_KEY: {process.env.GATSBY_ALGOLIA_SEARCH_KEY}</p>
+      <p>GATSBY_ALGOLIA_ADMIN_KEY: {process.env.GATSBY_ALGOLIA_ADMIN_KEY}</p>
+
+
     </Layout>
   )
 }

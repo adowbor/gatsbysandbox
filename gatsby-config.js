@@ -53,16 +53,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: "16JAIR49UX", //process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: "4c90b8a3f2d4d01cef362cd2eddfc628", //process.env.ALGOLIA_ADMIN_KEY,
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
         queries: require("./src/utils/algolia-queries")
       },
     },
   ],
 }
-
-/*
-GATSBY_ALGOLIA_APP_ID=16JAIR49UX
-GATSBY_ALGOLIA_SEARCH_KEY=60388655cb3f32fdce05e4514f0ecd4d
-ALGOLIA_ADMIN_KEY=4c90b8a3f2d4d01cef362cd2eddfc628
-*/
