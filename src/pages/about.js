@@ -2,26 +2,37 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SectionHeader from "../components/section-header"
+import Img from 'gatsby-image'
 
-export default function About({ data }) {
-  return (
-    <Layout>
-      <h1>About {data.site.siteMetadata.title}</h1>
-      <SectionHeader headerText="Hello Section"/>
-      <p>
-        We're the only site running on your computer dedicated to showing the
-        best photos and videos of pandas eating lots of food.
-      </p>
-    </Layout>
-  )
-}
 
-export const query = graphql`
+const IndexPage = props => (
+  <Layout>
+    
+    <Img fluid={props.data.imageOne.childImageSharp.fluid} />
+    <Img fluid={props.data.imageTwo.childImageSharp.fluid} />
+
+  </Layout>
+);
+
+export default IndexPage;
+
+export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
+    imageOne: file(relativePath: { eq: "images/pic1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 500, quality: 100) {
+          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluidLimitPresentationSize
+        }
+      }
+    }
+    imageTwo: file(relativePath: { eq: "images/pic2.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 500, quality: 100) {
+          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluidLimitPresentationSize
+        }
       }
     }
   }
-`
+`;

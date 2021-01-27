@@ -28,10 +28,19 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images/`,
+        name: 'images'
+      }
+    },
     `gatsby-plugin-offline`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
