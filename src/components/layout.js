@@ -1,8 +1,11 @@
 import React from "react"
 import { css } from "@emotion/react"
 import { useStaticQuery, Link, graphql } from "gatsby"
-
+import Search from "./search"
 import { rhythm } from "../utils/typography"
+
+const searchIndices = [{ name: `Pages`, title: `Pages` }]
+
 export default function Layout({ children }) {
   const data = useStaticQuery(
     graphql`
@@ -16,6 +19,8 @@ export default function Layout({ children }) {
     `
   )
   return (
+
+
     <div
       css={css`
         margin: 0 auto;
@@ -24,6 +29,7 @@ export default function Layout({ children }) {
         padding-top: ${rhythm(1.5)};
       `}
     >
+        <Search indices={searchIndices} />
       <Link to={`/`}>
         <h3
           css={css`
@@ -35,6 +41,7 @@ export default function Layout({ children }) {
           {data.site.siteMetadata.title}
         </h3>
       </Link>
+      
       <Link
         to={`/about/`}
         css={css`

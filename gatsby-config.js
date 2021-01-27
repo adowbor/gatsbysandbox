@@ -1,8 +1,10 @@
+require("dotenv").config()
+
 // https://webhook.gatsbyjs.com/hooks/data_source/b1946885-4cd1-43ce-b54f-a41f725b2281
 
 module.exports = {
   siteMetadata: {
-    title: `Super Pandas Eating Lots`,
+    title: `Pandas Eating Lots`,
     description: `A simple description about pandas eating lots...`,
     author: `gatsbyjs`,
   },
@@ -41,10 +43,19 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/utils/algolia-queries")
       },
     },
   ],
